@@ -191,13 +191,13 @@ class PlayState extends MusicBeatState
 
 	//Gameplay settings
 	public var healthGain:Float = 1;
-	public var healthLoss:Float = 1;
+	public var healthLoss:Float = 0.75;
 
 	public var guitarHeroSustains:Bool = false;
 	public var instakillOnMiss:Bool = false;
 	public var cpuControlled:Bool = false;
 	public var practiceMode:Bool = false;
-	public var pressMissDamage:Float = 0.05;
+	public var pressMissDamage:Float = 0.75;
 
 	public var botplaySine:Float = 0;
 	public var botplayTxt:FlxText;
@@ -1259,6 +1259,12 @@ class PlayState extends MusicBeatState
 	function startSong():Void
 	{
 		startingSong = false;
+
+		notes.forEarchAlive((note: Note) => {
+			
+			note.alpha = 0.5;
+			
+		});
 
 		@:privateAccess
 		FlxG.sound.playMusic(inst._sound, 1, false);
