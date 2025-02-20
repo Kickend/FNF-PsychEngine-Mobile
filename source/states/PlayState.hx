@@ -2767,7 +2767,12 @@ class PlayState extends MusicBeatState
 					}
 				}
 			}
+
+                        if(!funnyNote.isSustainNote){
+			
 			goodNoteHit(funnyNote);
+
+			}	
 		}
 		else
 		{
@@ -2897,7 +2902,9 @@ class PlayState extends MusicBeatState
 						var released:Bool = !holdArray[n.noteData];
 
 						if (!released)
+							if(!n.isSustainNote){
 							goodNoteHit(n);
+							}
 					}
 				}
 			}
